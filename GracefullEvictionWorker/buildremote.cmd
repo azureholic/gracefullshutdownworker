@@ -1,0 +1,1 @@
+az acr build --registry %1 --image queueworker:v1 .
