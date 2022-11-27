@@ -8,6 +8,6 @@ This project was setup to handle a shutdown request, and delays it (in this case
 **Tested with**
 Local (handle CTRL+C)
 Docker Desktop (shutdown container)
-Kubernetes/Container Apps (KEDA scale down)
+Kubernetes/Container Apps (KEDA scale down POD eviction)
 
 It seems to work, although when your background job takes longer than 30 seconds, you might want to consider not using auto-scaling and if you do, be idempotent.
