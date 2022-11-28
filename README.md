@@ -11,5 +11,13 @@ This project was setup to handle a shutdown request, and delays it (in this case
 * Docker Desktop (shutdown container)
 * Kubernetes/Container Apps (KEDA scale down POD eviction)
 
-
 It seems to work, although when your background job takes longer than 30 seconds, you might want to consider not using auto-scaling and if you do, be idempotent.
+
+References to documentation
+[https://learn.microsoft.com/en-us/azure/container-apps/scale-app](https://learn.microsoft.com/en-us/azure/container-apps/scale-app)
+
+* Container Apps implements the KEDA [ScaledObject](https://keda.sh/docs/concepts/scaling-deployments/#details) and HTTP scaler with the following default settings.
+    * pollingInterval: 30 seconds
+    * cooldownPeriod: 300 seconds
+
+
