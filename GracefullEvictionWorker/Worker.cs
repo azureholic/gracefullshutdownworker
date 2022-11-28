@@ -18,7 +18,7 @@ namespace GracefullEvictionWorker
             _hostApplicationLifetime = hostApplicationLifetime;
             _config = config;
             _logger = logger;
-            _logger.LogInformation("0. Starting Worker");
+            _logger.LogInformation("Starting Worker");
             string connection = _config["StorageSettings:StorageConnectionString"];
             string queue = _config["StorageSettings:StorageQueueName"];
             _queueClient = new QueueClient(connection, queue);
@@ -52,13 +52,13 @@ namespace GracefullEvictionWorker
 
         override public Task StopAsync(CancellationToken cancellationToken)
         {   
-            _logger.LogInformation("4. StopAsync has been called.");
+            _logger.LogInformation("StopAsync has been called.");
             return Task.CompletedTask;
         }
 
         private void OnStopping()
         {
-            _logger.LogInformation("3. OnStopping has been called.");
+            _logger.LogInformation("OnStopping has been called.");
             _logger.LogInformation("SIGTERM received, waiting for 10 seconds");
             _stopExecuting = true;
             
